@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <title>event source</title>
+    <script>
+     let eventSource = new EventSource('/login');
+
+     // only 3 default events: message, open, error
+     eventSource.addEventListener('message', (broadcast) => {
+       console.log('got message: ' + JSON.stringify(broadcast));
+       document.getElementById('clock').innerHTML = broadcast.data
+     });
+
+     eventSource.addEventListener('open', () => {
+       console.log('connection opened')
+     });
+
+     eventSource.addEventListener('error', () => {
+       console.log('connection error/closed');
+     });
+
+    </script>
+  </head>
+  <body>
+      <div id="clock"></div>
+  </body>
+</html>
