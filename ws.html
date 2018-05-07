@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <title>ws</title>
+    <script>
+     let conn = new WebSocket("ws://localhost:8080", 'json');
+     conn.onopen = () => {
+       conn.send('Hello from the client!')
+     };
+     conn.onerror = (error) => {
+       console.log('Error!' + error);
+     }
+     conn.onclose = () => {
+       console.log('Server has closed the connection!')
+     }
+     conn.onmessage = (msg) => {
+       console.log('Received: ' + msg.data);
+     }
+    </script>
+  </head>
+  <body>
+    
+  </body>
+</html>
