@@ -1,0 +1,12 @@
+{
+  "name": "mocha-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./spec --require ./spec/helpers/chai.js --reporter spec"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
